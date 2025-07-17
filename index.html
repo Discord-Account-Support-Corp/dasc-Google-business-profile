@@ -4,19 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#5865F2" />
-  <title>Redirecting to Discord Support Search</title>
+  <title>Discord Support Search</title>
   <link rel="manifest" href="manifest.json" />
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('service-worker.js');
     }
-
-    // Auto redirect after short delay
-    window.onload = () => {
-      setTimeout(() => {
-        window.location.href = "https://www.google.com/gasearch?q=Discord%20Account%20Support%20Corporation%C2%A9";
-      }, 2000);
-    };
   </script>
   <style>
     body {
@@ -28,21 +21,28 @@
     h1 {
       color: #5865F2;
     }
-    a.button {
-      display: inline-block;
-      margin-top: 20px;
+    button {
       padding: 12px 24px;
       background-color: #5865F2;
       color: white;
-      text-decoration: none;
+      border: none;
       border-radius: 6px;
+      font-size: 16px;
       font-weight: bold;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <h1>Redirecting you to Discord Support Search…</h1>
-  <p>If you are not redirected automatically, click below:</p>
-  <a class="button" href="https://www.google.com/gasearch?q=Discord%20Account%20Support%20Corporation%C2%A9" target="_blank">Go to Search</a>
+  <h1>Open Discord Support Search</h1>
+  <p>This will open the search in your Safari browser, not the Google app.</p>
+  <button onclick="openSearch()">Open Search</button>
+
+  <script>
+    function openSearch() {
+      // Open in new Safari tab, not Google App
+      window.open("https://www.google.com/gasearch?q=Discord%20Account%20Support%20Corporation%C2%A9", "_blank");
+    }
+  </script>
 </body>
 </html>
