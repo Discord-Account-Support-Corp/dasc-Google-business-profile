@@ -2,40 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#5865F2" />
-  <title>Discord Support Search</title>
-  <link rel="manifest" href="manifest.json" />
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js');
-    }
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open in Safari</title>
   <style>
     body {
       font-family: system-ui, sans-serif;
-      text-align: center;
       padding: 2rem;
-      background: #f9f9f9;
-    }
-    h1 {
-      color: #5865F2;
+      text-align: center;
     }
     button {
-      padding: 12px 24px;
       background-color: #5865F2;
       color: white;
+      padding: 12px 20px;
+      font-size: 16px;
       border: none;
       border-radius: 6px;
-      font-size: 16px;
-      font-weight: bold;
       cursor: pointer;
+      margin-top: 20px;
+    }
+    input {
+      font-size: 16px;
+      padding: 8px;
+      width: 90%;
+      max-width: 480px;
+      margin-top: 1rem;
     }
   </style>
 </head>
 <body>
-  <h1>Open Discord Support Search</h1>
-  <p>This will open in Safari, not the Google App.</p>
-  <button onclick="window.location.href = 'redirect.html';">Open Search</button>
+  <h1>Open Google Search in Safari</h1>
+  <p>Safari prevents this app from opening a new tab directly.</p>
+  <p>Tap the button below to open it in Safari:</p>
+  <button onclick="openInSafari()">Open in Safari</button>
+  <input type="text" id="link" value="https://www.google.com/gasearch?q=Discord%20Account%20Support%20Corporation%C2%A9" readonly />
+
+  <script>
+    function openInSafari() {
+      const link = document.getElementById("link").value;
+      // Attempt to use Safari UI
+      window.location.replace(link);
+    }
+  </script>
 </body>
 </html>
